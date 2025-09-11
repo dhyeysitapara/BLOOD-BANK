@@ -1,5 +1,5 @@
 ﻿
-namespace Blood_Bank
+namespace BLOOD_BANK
 {
     partial class Login
     {
