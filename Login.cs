@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Blood_Bank
+namespace BLOOD_BANK
+    
 {
     public partial class Login : Form
     {
