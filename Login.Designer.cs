@@ -1,5 +1,5 @@
 ﻿
-namespace Blood_Bank
+namespace BLOOD_BANK
 {
     partial class Login
     {
@@ -105,6 +105,7 @@ namespace Blood_Bank
             this.button1.TabIndex = 12;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -135,7 +136,7 @@ namespace Blood_Bank
             this.pictureBox1.Location = new System.Drawing.Point(153, 59);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 119);
+            this.pictureBox1.Size = new System.Drawing.Size(106, 113);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -146,7 +147,7 @@ namespace Blood_Bank
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(459, 445);
+            this.ClientSize = new System.Drawing.Size(403, 445);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
