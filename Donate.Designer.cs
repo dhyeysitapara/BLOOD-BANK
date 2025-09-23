@@ -1,4 +1,5 @@
-﻿namespace BLOOD_BANK
+﻿
+namespace BLOOD_BANK
 {
     partial class Donate
     {

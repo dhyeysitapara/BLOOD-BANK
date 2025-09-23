@@ -511,6 +511,7 @@ namespace BLOOD_BANK
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -572,6 +573,11 @@ namespace BLOOD_BANK
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
         {
 
         }
