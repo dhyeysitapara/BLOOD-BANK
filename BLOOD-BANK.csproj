@@ -63,7 +63,15 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard.resx" />
+    <EmbeddedResource Include="BloodStock.resx">
+      <DependentUpon>BloodStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BloodTransfert.resx">
+      <DependentUpon>BloodTransfert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
