@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace Blood_Bank
+namespace BLOOD_BANK
 {
     public partial class ViewDonoe : Form
     {
