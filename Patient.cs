@@ -76,6 +76,36 @@ namespace BLOOD_BANK
         private void button2_Click(object sender, EventArgs e)
         {
 
+            string query = "INSERT INTO PatientTable (PName, PAge, PGender, PPhone, PAddress, PBGroup) " +
+                         "VALUES (@PName, @PAge, @PGender, @PPhone, @PAddress, @PBGroup)";
+
+
+            using (SqlConnection con = new SqlConnection(s))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@PName", PNameTb.Text);
+                    cmd.Parameters.AddWithValue("@PAge", PAgeTb.Text);
+                    cmd.Parameters.AddWithValue("@PGender", PGenderCb.Text);
+                    cmd.Parameters.AddWithValue("@PPhone", PPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@PAddress", PAddressTb.Text);
+                    cmd.Parameters.AddWithValue("@PBGroup", PBGroupCb.Text);
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data inserted successfully!");
+                        Reset();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -202,6 +232,7 @@ namespace BLOOD_BANK
             this.button2.TabIndex = 62;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // pictureBox2
             // 
@@ -500,7 +531,7 @@ namespace BLOOD_BANK
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(29, 150);
+            this.label23.Location = new System.Drawing.Point(28, 108);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(62, 18);
@@ -512,7 +543,7 @@ namespace BLOOD_BANK
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(29, 394);
+            this.label8.Location = new System.Drawing.Point(28, 352);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 18);
@@ -524,7 +555,7 @@ namespace BLOOD_BANK
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(29, 340);
+            this.label7.Location = new System.Drawing.Point(28, 298);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 18);
@@ -536,19 +567,20 @@ namespace BLOOD_BANK
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(29, 289);
+            this.label6.Location = new System.Drawing.Point(28, 247);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 18);
             this.label6.TabIndex = 11;
             this.label6.Text = "View Patients";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(29, 241);
+            this.label5.Location = new System.Drawing.Point(28, 199);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 18);
@@ -560,7 +592,7 @@ namespace BLOOD_BANK
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(29, 195);
+            this.label4.Location = new System.Drawing.Point(28, 153);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 18);
@@ -572,7 +604,7 @@ namespace BLOOD_BANK
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(29, 110);
+            this.label3.Location = new System.Drawing.Point(28, 68);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 18);
@@ -582,7 +614,7 @@ namespace BLOOD_BANK
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.IndianRed;
-            this.panel4.Location = new System.Drawing.Point(16, 234);
+            this.panel4.Location = new System.Drawing.Point(15, 192);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(9, 38);
@@ -593,7 +625,7 @@ namespace BLOOD_BANK
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(29, 65);
+            this.label2.Location = new System.Drawing.Point(28, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 18);
@@ -748,9 +780,46 @@ namespace BLOOD_BANK
 
         }
 
+
         private void Patient_Load_1(object sender, EventArgs e)
         {
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            string query = "INSERT INTO PatientTable (PName, PAge, PGender, PPhone, PAddress, PBGroup) " +
+                         "VALUES (@PName, @PAge, @PGender, @PPhone, @PAddress, @PBGroup)";
+
+
+            using (SqlConnection con = new SqlConnection(s))
+            {
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@PName", PNameTb.Text);
+                    cmd.Parameters.AddWithValue("@PAge", PAgeTb.Text);
+                    cmd.Parameters.AddWithValue("@PGender", PGenderCb.Text);
+                    cmd.Parameters.AddWithValue("@PPhone", PPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@PAddress", PAddressTb.Text);
+                    cmd.Parameters.AddWithValue("@PBGroup", PBGroupCb.Text);
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data inserted successfully!");
+                        Reset();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }
+
