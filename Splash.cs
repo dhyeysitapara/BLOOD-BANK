@@ -33,7 +33,7 @@ namespace BLOOD_BANK
             timer1.Stop();
 
             // Open the main form
-            Dashboard main = new Dashboard();
+            Login main = new Login();
             main.Show();
 
             // Hide or close the splash screen

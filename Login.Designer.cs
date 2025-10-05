@@ -114,9 +114,8 @@ namespace BLOOD_BANK
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(123, 359);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 19);
+            this.label4.Size = new System.Drawing.Size(0, 19);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Continue As Admin";
             // 
             // label5
             // 
